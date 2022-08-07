@@ -1,7 +1,4 @@
-import numpy as np
-from Board import Board
 from connect_4 import *
-import time
 
 empty_board = np.zeros((7, 7))
 
@@ -30,12 +27,14 @@ not_win_board[3, 2] = 2
 not_win_board[3, 1] = 2
 
 b = Board()
-for win_board in [winning_board_1_vert, winning_board_1_hor, winning_board_decline_diag, winning_board_decline_diag,
-                  not_win_board]:
+for win_board in [
+    # winning_board_1_vert,
+    # winning_board_1_hor,
+    winning_board_decline_diag,
+    winning_board_decline_diag,
+    # not_win_board
+]:
     b.board = win_board
-    b.prtBoard()
-    print(evaulate_board(b))
-    st = time.time()
+    b.prt_board()
+    print(evaulate_board(b, pos=(1, 2)))
     print(f"Winning: {b.check_win(2)}")
-    print(time.time() - st)
-    print()

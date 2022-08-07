@@ -182,7 +182,7 @@ def CVC():
     global myNumber, moves
     board.__init__()
 
-    while not board.checkWin() and not board.isFull():
+    while not board.checkWin() and not board.is_full():
         moves = [0, 0, 0, 0, 0, 0, 0]
         getBestMove(myNumber)
         for i, x in enumerate(moves):
@@ -210,15 +210,15 @@ def PVC():
     player_num = 1
     comp_num = 2
     for iterate in range(1):
-        while not board.checkWin() and not board.isFull():
-            board.prtBoard()
+        while not board.checkWin() and not board.is_full():
+            board.prt_board()
             chosen_slot = int(input('Enter A Slot: '))
             board.drop_player_token(player_num, chosen_slot)
 
             best_move, movew = getBestMove(comp_num, testBoard=board)
             print(moves, computerMove)
             board.drop_player_token(comp_num, computerMove)
-        board.prtBoard()
+        board.prt_board()
         if board.checkWin() == 1:
             return 1
 
