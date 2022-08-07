@@ -28,10 +28,10 @@ def evaulate_board(board, pos=None):
     return evaluation
 
 
-#
+
 def minimax(board, pos, depth, is_max_player, alpha, beta):
     board_value = evaulate_board(board, pos=pos)
-    if abs(board_value) > 100000 or depth > 5:  # Is a winning board:
+    if abs(board_value) > 100000 or depth > DEPTH:  # Is a winning board:
         return None, board_value,
 
     player = 1 if is_max_player else 2
@@ -69,6 +69,7 @@ def minimax(board, pos, depth, is_max_player, alpha, beta):
         return best_col, best_val
 
 
+DEPTH = 5
 if __name__ == "__main__":
     board = Board()
     player_num = 1
@@ -80,7 +81,7 @@ if __name__ == "__main__":
         board.show_board()
         key = cv2.waitKey(0)
 
-        chosen_slot = int(chr(key))
+        chosen_slot = int(chr(key)) - 1
         board.drop_player_token(player_num, chosen_slot)
         board.show_board()
         board.prt_board()

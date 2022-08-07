@@ -109,7 +109,7 @@ class Board():
                     color = (0, 0, 255) if val == 1 else (255, 0, 0)
                     board_img = cv2.circle(board_img, (col * 100 + 50, row * 100 + 50), radius=50, color=color,
                                            thickness=-1)
-        cv2.imshow("board", board_img)
+        cv2.imshow("Enter Number (1-7) to play ", board_img)
 
     def read_from_str(self, board_str):
         self.reset_board()
